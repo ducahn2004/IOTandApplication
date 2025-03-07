@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "author": "Ahn Đức",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 48, "left": 91.24, "attrs": {} },
+      { "type": "wokwi-dht22", "id": "dht1", "top": 29.1, "left": 225, "attrs": {} },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "ldr1",
+        "top": 185.6,
+        "left": -133.6,
+        "attrs": {}
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "esp:4", "dht1:SDA", "green", [ "h0" ] ],
+      [ "dht1:VCC", "esp:5V", "red", [ "v134.4", "h-153.6", "v-28.8" ] ],
+      [ "dht1:GND", "esp:GND.3", "black", [ "v19.2", "h-57.6", "v-28.8" ] ],
+      [ "ldr1:VCC", "esp:5V", "red", [ "h38.4", "v48" ] ],
+      [ "ldr1:GND", "esp:GND.1", "black", [ "h48", "v-10" ] ],
+      [ "esp:34", "ldr1:AO", "green", [ "h-38.25", "v115.2" ] ]
+    ],
+    "dependencies": {}
+  }
